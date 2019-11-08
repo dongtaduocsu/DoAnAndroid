@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:scrollbars="none"
     android:fillViewport="true"
-
     >
     <LinearLayout
         android:orientation="vertical"
@@ -17,7 +16,12 @@
             android:id="@+id/fragmentquangcao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
+        </fragment>
+        <fragment
+            android:name="com.example.doanandroid.Fragment.fragment_playlist"
+            android:id="@+id/fragmentplaylist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         </fragment>
     </LinearLayout>
 
