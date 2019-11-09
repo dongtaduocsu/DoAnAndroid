@@ -21,10 +21,8 @@ public interface Dataservice {
     @GET ("chudevatheloaitrongngay.php")
     Call<Theloaivachude> GetCategoryMusic();
 
-    @GET("albumhot.php")
-    Call<List<Album>>GetAlbumHot();
-
-
+    @GET ("albumhot.php")
+    Call<List<Album>> GetAlbumHot();
 
 
 }

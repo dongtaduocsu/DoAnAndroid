@@ -1,31 +1,31 @@
 package com.example.doanandroid.Fragment;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+        import android.os.Bundle;
+        import android.util.Log;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+        import androidx.annotation.NonNull;
+        import androidx.annotation.Nullable;
+        import androidx.fragment.app.Fragment;
+        import androidx.recyclerview.widget.LinearLayoutManager;
+        import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.doanandroid.Adapter.AlbumAdapter;
-import com.example.doanandroid.Model.Album;
-import com.example.doanandroid.R;
-import com.example.doanandroid.Service.APIretrofitclient;
-import com.example.doanandroid.Service.APIservice;
-import com.example.doanandroid.Service.Dataservice;
+        import com.example.doanandroid.Adapter.AlbumAdapter;
+        import com.example.doanandroid.Model.Album;
+        import com.example.doanandroid.R;
+        import com.example.doanandroid.Service.APIretrofitclient;
+        import com.example.doanandroid.Service.APIservice;
+        import com.example.doanandroid.Service.Dataservice;
 
-import java.util.ArrayList;
-import java.util.List;
+        import java.util.ArrayList;
+        import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+        import retrofit2.Call;
+        import retrofit2.Callback;
+        import retrofit2.Response;
 
 public class Fragment_Album_Hot extends Fragment {
     View view;
