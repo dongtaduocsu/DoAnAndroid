@@ -18,7 +18,7 @@
             android:id="@+id/collapsingtoolbar"
             app:expandedTitleGravity="center|bottom"
             app:expandedTitleMarginBottom="33dp"
-            android:background="@mipmap/ic_launcher"
+            android:background="@drawable/bg"
             android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:layout_width="match_parent"

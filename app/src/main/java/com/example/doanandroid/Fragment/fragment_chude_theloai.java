@@ -1,5 +1,6 @@
 package com.example.doanandroid.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.example.doanandroid.Activity.DanhsachbaihatActivity;
 import com.example.doanandroid.Model.ChuDe;
 import com.example.doanandroid.Model.TheLoai;
 import com.example.doanandroid.Model.Theloaivachude;
@@ -85,6 +87,16 @@ public class fragment_chude_theloai extends Fragment {
                     cardView.setLayoutParams(layout);
                     cardView.addView(imageView);
                     linearLayout.addView(cardView);
+
+                    final int finalJ = j;
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getActivity(), DanhsachbaihatActivity.class);
+                            intent.putExtra("idtheloai", theLoaiArrayList.get(finalJ));
+                            startActivity(intent);
+                        }
+                    });
                 }
                 horizontalScrollView.addView(linearLayout);
             }
