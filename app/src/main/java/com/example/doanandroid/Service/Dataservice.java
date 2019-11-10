@@ -1,6 +1,7 @@
 package com.example.doanandroid.Service;
 
 import com.example.doanandroid.Model.Album;
+import com.example.doanandroid.Model.Baihat;
 import com.example.doanandroid.Model.Playlist;
 import com.example.doanandroid.Model.Quangcao;
 import com.example.doanandroid.Model.Theloaivachude;
@@ -23,6 +24,9 @@ public interface Dataservice {
 
     @GET ("albumhot.php")
     Call<List<Album>> GetAlbumHot();
+
+    @GET ("baihatduocthich.php")
+    Call<List<Baihat>> GetBaiHatHot();
 
 
 }
