@@ -1,5 +1,6 @@
 package com.example.doanandroid.Fragment;
 
+        import android.content.Intent;
         import android.os.Bundle;
         import android.util.Log;
         import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ package com.example.doanandroid.Fragment;
         import androidx.recyclerview.widget.LinearLayoutManager;
         import androidx.recyclerview.widget.RecyclerView;
 
+        import com.example.doanandroid.Activity.DanhsachtatcaalbumActivity;
         import com.example.doanandroid.Adapter.AlbumAdapter;
         import com.example.doanandroid.Model.Album;
         import com.example.doanandroid.R;
@@ -39,7 +41,13 @@ public class Fragment_Album_Hot extends Fragment {
         view =inflater.inflate(R.layout.fragment_album_hot,container,false);
         recyclerViewalbum=view.findViewById(R.id.recycleAlbum);
         txtxemthemalbum=view.findViewById(R.id.textviewxemthemAlbum);
-
+        txtxemthemalbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), DanhsachtatcaalbumActivity.class);
+                startActivity(intent);
+            }
+        });
         GetData();
         return view;
     }

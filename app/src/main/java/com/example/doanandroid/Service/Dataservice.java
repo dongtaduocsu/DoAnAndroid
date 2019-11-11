@@ -2,8 +2,10 @@ package com.example.doanandroid.Service;
 
 import com.example.doanandroid.Model.Album;
 import com.example.doanandroid.Model.Baihat;
+import com.example.doanandroid.Model.ChuDe;
 import com.example.doanandroid.Model.Playlist;
 import com.example.doanandroid.Model.Quangcao;
+import com.example.doanandroid.Model.TheLoai;
 import com.example.doanandroid.Model.Theloaivachude;
 
 import java.util.List;
@@ -46,5 +48,18 @@ public interface Dataservice {
     @POST("danhsachbaihat.php")
     Call<List<Baihat>> GetDanhsachbaihattheotheloai(@Field("idtheloai") String idtheloai);
 
+    @GET ("tatcachude.php")
+    Call<List<ChuDe>> GetDanhsachtatcachude();
+
+    @FormUrlEncoded
+    @POST("theloaitheochude.php")
+    Call<List<TheLoai>> GetDanhsachtheloaitheochude(@Field("idchude") String idchude);
+
+    @GET ("tatcaalbum.php")
+    Call<List<Album>> GetDanhsachtatcaalbum();
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<Baihat>> GetDanhsachbaihattheoalbum(@Field("idalbum") String idalbum);
 
 }
