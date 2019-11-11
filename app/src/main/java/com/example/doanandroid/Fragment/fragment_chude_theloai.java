@@ -16,6 +16,8 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.doanandroid.Activity.DanhsachbaihatActivity;
+import com.example.doanandroid.Activity.DanhsachtatcachudeActivity;
+import com.example.doanandroid.Activity.DanhsachtheloaitheochudeActivity;
 import com.example.doanandroid.Model.ChuDe;
 import com.example.doanandroid.Model.TheLoai;
 import com.example.doanandroid.Model.Theloaivachude;
@@ -41,6 +43,13 @@ public class fragment_chude_theloai extends Fragment {
         view = inflater.inflate(R.layout.chude_theloai_fragment, container, false);
         horizontalScrollView = view.findViewById(R.id.horizontalScrollview);
         txtxemthemchudetheloai = view.findViewById(R.id.textviewxemthem);
+        txtxemthemchudetheloai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), DanhsachtatcachudeActivity.class);
+                startActivity(intent);
+            }
+        });
         GetData();
         return view;
     }
@@ -75,6 +84,15 @@ public class fragment_chude_theloai extends Fragment {
                     cardView.setLayoutParams(layout);
                     cardView.addView(imageView);
                     linearLayout.addView(cardView);
+                    final int finalI = i;
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getActivity(), DanhsachtheloaitheochudeActivity.class);
+                            intent.putExtra("chude", chuDeArrayList.get(finalI));
+                            startActivity(intent);
+                        }
+                    });
                 }
                 for (int j = 0; j < (chuDeArrayList.size()); j++) {
                     CardView cardView = new CardView(getActivity());

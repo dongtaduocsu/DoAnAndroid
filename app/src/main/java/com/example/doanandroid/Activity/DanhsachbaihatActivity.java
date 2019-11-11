@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.doanandroid.Adapter.DanhsachbaihatAdapter;
+import com.example.doanandroid.Model.Album;
 import com.example.doanandroid.Model.Baihat;
 import com.example.doanandroid.Model.Playlist;
 import com.example.doanandroid.Model.Quangcao;
@@ -54,6 +55,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
     Quangcao quangcao;
     Playlist playlist;
     TheLoai theLoai;
+    Album album;
     DanhsachbaihatAdapter danhsachbaihatAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,29 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
             setValueInView(theLoai.getTenTheLoai(), theLoai.getHinhTheLoai());
             GetDataTheLoai(theLoai.getIdTheLoai());
         }
+        if (album != null && !album.getTenalbum().equals("")) {
+            setValueInView(album.getTenalbum(), album.getHinhanhalbum());
+            GetDataAlbum(album.getIdalbum());
+        }
+    }
+
+    private void GetDataAlbum(String idalbum) {
+        Dataservice dataservice = APIservice.getservice();
+        Call<List<Baihat>> callback = dataservice.GetDanhsachbaihattheoalbum(idalbum);
+        callback.enqueue(new Callback<List<Baihat>>() {
+            @Override
+            public void onResponse(Call<List<Baihat>> call, Response<List<Baihat>> response) {
+                mangbaihat = (ArrayList<Baihat>) response.body();
+                danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this, mangbaihat);
+                recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
+                recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Baihat>> call, Throwable t) {
+
+            }
+        });
     }
 
     private void GetDataTheLoai(String idtheloai) {
@@ -173,6 +198,9 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
             }
             if (intent.hasExtra("idtheloai")){
                 theLoai = (TheLoai) intent.getSerializableExtra("idtheloai");
+            }
+            if (intent.hasExtra("idalbum")){
+                album = (Album) intent.getSerializableExtra("idalbum");
             }
         }
     }
