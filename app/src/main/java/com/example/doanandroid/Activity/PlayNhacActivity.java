@@ -99,7 +99,7 @@ public class PlayNhacActivity extends AppCompatActivity {
 
                 }
             }
-        }, 10000);
+        }, 12000);
 
         imgplay.setOnClickListener(new View.OnClickListener() {
             @Override

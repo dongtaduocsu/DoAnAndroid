@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#fcfcfc"
     tools:context=".Activity.MainActivity">
 
 
@@ -20,6 +21,7 @@
         android:id="@+id/myTabLayout"
         app:tabIndicatorColor="#a845de"
         app:tabMode="fixed"
+        app:tabBackground="@color/colorAccent"
         app:tabSelectedTextColor="#a845de"
         app:tabTextColor="#000000"
         app:tabIndicatorHeight="2dp"

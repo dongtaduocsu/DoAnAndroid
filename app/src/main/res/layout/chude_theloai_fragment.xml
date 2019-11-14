@@ -19,8 +19,8 @@
             android:layout_alignParentRight="true"
             android:textColor="#913677"
             android:id="@+id/textviewxemthem"
-            android:textSize="18sp"
-            android:text="Xem thêm"
+            android:textSize="16sp"
+            android:text="Xem thêm >"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RelativeLayout>

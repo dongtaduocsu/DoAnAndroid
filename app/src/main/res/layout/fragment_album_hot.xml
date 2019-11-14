@@ -24,10 +24,9 @@
         <TextView
             android:id="@+id/textviewxemthemAlbum"
             android:textColor="#913677"
-            android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:layout_alignParentRight="true"
-            android:text="xem thêm"
+            android:text="Xem thêm >"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
 

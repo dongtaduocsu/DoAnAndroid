@@ -4,6 +4,8 @@
     <item android:id="@+id/menu_search"
         android:icon="@drawable/icontimkiem"
         app:showAsAction="always"
+        android:iconTint="@color/colorAccent"
+        android:titleCondensed="Tìm kiếm"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         android:title="Search"/>
 </menu>
