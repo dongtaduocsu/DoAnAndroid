@@ -54,10 +54,11 @@
         app:layout_anchor="@id/appbarlayout"
         app:layout_anchorGravity="bottom|center"
         android:id="@+id/floatingactionbutton"
+        app:borderWidth="0dp"
         app:fabSize="normal"
         android:scaleType="fitXY"
-        android:src="@drawable/iconfloatingactionbutton"
-        android:backgroundTint="#a845de"
+        android:src="@drawable/iconplay"
+        android:backgroundTint="@color/mautim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <androidx.core.widget.NestedScrollView
