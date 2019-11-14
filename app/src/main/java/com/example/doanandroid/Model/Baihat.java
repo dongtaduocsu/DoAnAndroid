@@ -8,24 +8,27 @@ import com.google.gson.annotations.SerializedName;
 
 public class Baihat implements Parcelable {
 
-@SerializedName("Idbaihat")
-@Expose
-private String idbaihat;
-@SerializedName("Tenbaihat")
-@Expose
-private String tenbaihat;
-@SerializedName("Hinhbaihat")
-@Expose
-private String hinhbaihat;
-@SerializedName("Casi")
-@Expose
-private String casi;
-@SerializedName("Linkbaihat")
-@Expose
-private String linkbaihat;
-@SerializedName("Luotthich")
-@Expose
-private String luotthich;
+    @SerializedName("Idbaihat")
+    @Expose
+    private String idbaihat;
+    @SerializedName("Tenbaihat")
+    @Expose
+    private String tenbaihat;
+    @SerializedName("Hinhbaihat")
+    @Expose
+    private String hinhbaihat;
+    @SerializedName("Casi")
+    @Expose
+    private String casi;
+    @SerializedName("Linkbaihat")
+    @Expose
+    private String linkbaihat;
+    @SerializedName("Luotthich")
+    @Expose
+    private String luotthich;
+    @SerializedName("Loibaihat")
+    @Expose
+    private String loibaihat;
 
     protected Baihat(Parcel in) {
         idbaihat = in.readString();
@@ -34,6 +37,7 @@ private String luotthich;
         casi = in.readString();
         linkbaihat = in.readString();
         luotthich = in.readString();
+        loibaihat = in.readString();
     }
 
     public static final Creator<Baihat> CREATOR = new Creator<Baihat>() {
@@ -96,6 +100,14 @@ public void setLuotthich(String luotthich) {
 this.luotthich = luotthich;
 }
 
+    public String getLoibaihat() {
+        return loibaihat;
+    }
+
+    public void setLoibaihat(String loibaihat) {
+        this.loibaihat = loibaihat;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -109,5 +121,6 @@ this.luotthich = luotthich;
         parcel.writeString(casi);
         parcel.writeString(linkbaihat);
         parcel.writeString(luotthich);
+        parcel.writeString(loibaihat);
     }
 }

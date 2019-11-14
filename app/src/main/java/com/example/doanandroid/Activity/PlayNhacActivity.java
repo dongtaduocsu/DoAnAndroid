@@ -3,6 +3,7 @@ package com.example.doanandroid.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import com.example.doanandroid.Adapter.PlaynhacAdapter;
 import com.example.doanandroid.Adapter.ViewPagerPlaylistnhac;
 import com.example.doanandroid.Fragment.Fragment_Dia_nhac;
+import com.example.doanandroid.Fragment.Fragment_Lyric;
 import com.example.doanandroid.Fragment.Fragment_Play_Danh_Sach_Bai_Hat;
 import com.example.doanandroid.Model.Baihat;
 import com.example.doanandroid.R;
@@ -42,6 +44,7 @@ public class PlayNhacActivity extends AppCompatActivity {
     public static ViewPagerPlaylistnhac adapternhac;
     Fragment_Dia_nhac fragment_dia_nhac;
     Fragment_Play_Danh_Sach_Bai_Hat fragment_play_danh_sach_bai_hat;
+    Fragment_Lyric fragment_lyric;
 
     MediaPlayer mediaPlayer;
     int position = 0;
@@ -61,6 +64,9 @@ public class PlayNhacActivity extends AppCompatActivity {
     }
 
     private void eventClick() {
+
+
+
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -69,12 +75,32 @@ public class PlayNhacActivity extends AppCompatActivity {
                     if (mangbaihat.size() > 0){
                         fragment_dia_nhac.Playnhac(mangbaihat.get(0).getHinhbaihat());
                         handler.removeCallbacks(this);
+
                     }else {
                         handler.postDelayed(this, 300);
                     }
+
                 }
             }
         }, 500);
+
+        final Handler handler2 = new Handler();
+        handler2.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (adapternhac.getItem(2)!=null){
+                    if (mangbaihat.size() > 0){
+                        fragment_lyric.ThemLyric(mangbaihat.get(0).getTenbaihat(), mangbaihat.get(0).getCasi(), mangbaihat.get(0).getLoibaihat()+" ");
+                        handler2.removeCallbacks(this);
+
+                    }else {
+                        handler2.postDelayed(this, 300);
+                    }
+
+                }
+            }
+        }, 10000);
+
         imgplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -176,6 +202,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                         }
                         new PlayMp3().execute(mangbaihat.get(position).getLinkbaihat());
                         fragment_dia_nhac.Playnhac(mangbaihat.get(position).getHinhbaihat());
+                        fragment_lyric.ThemLyric(mangbaihat.get(position).getTenbaihat(), mangbaihat.get(position).getCasi(), mangbaihat.get(position).getLoibaihat()+" ");
                         getSupportActionBar().setTitle(mangbaihat.get(position).getTenbaihat());
                         UpdateTime();
                     }
@@ -183,7 +210,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                 imgpre.setClickable(false);
                 imgnext.setClickable(false);
                 Handler handler1 = new Handler();
-                handler.postDelayed(new Runnable() {
+                handler1.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         imgpre.setClickable(true);
@@ -221,6 +248,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                         }
                         new PlayMp3().execute(mangbaihat.get(position).getLinkbaihat());
                         fragment_dia_nhac.Playnhac(mangbaihat.get(position).getHinhbaihat());
+                        fragment_lyric.ThemLyric(mangbaihat.get(position).getTenbaihat(), mangbaihat.get(position).getCasi(), mangbaihat.get(position).getLoibaihat()+" ");
                         getSupportActionBar().setTitle(mangbaihat.get(position).getTenbaihat());
                         UpdateTime();
                     }
@@ -228,7 +256,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                 imgpre.setClickable(false);
                 imgnext.setClickable(false);
                 Handler handler1 = new Handler();
-                handler.postDelayed(new Runnable() {
+                handler1.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         imgpre.setClickable(true);
@@ -279,15 +307,21 @@ public class PlayNhacActivity extends AppCompatActivity {
         toolbarplaynhac.setTitleTextColor(Color.WHITE);
         fragment_dia_nhac = new Fragment_Dia_nhac();
         fragment_play_danh_sach_bai_hat = new Fragment_Play_Danh_Sach_Bai_Hat();
+        fragment_lyric = new Fragment_Lyric();
         adapternhac = new ViewPagerPlaylistnhac(getSupportFragmentManager());
         adapternhac.AddFragment(fragment_play_danh_sach_bai_hat);
         adapternhac.AddFragment(fragment_dia_nhac);
+        adapternhac.AddFragment(fragment_lyric);
         viewPagerplaynhac.setAdapter(adapternhac);
         fragment_dia_nhac = (Fragment_Dia_nhac) adapternhac.getItem(1);
+        fragment_lyric = (Fragment_Lyric) adapternhac.getItem(2);
+
+
         if (mangbaihat.size() > 0) {
             getSupportActionBar().setTitle(mangbaihat.get(0).getTenbaihat());
             new PlayMp3().execute(mangbaihat.get(0).getLinkbaihat());
             imgplay.setImageResource(R.drawable.iconpause);
+
         }
     }
     class PlayMp3 extends AsyncTask<String, Void, String>{
@@ -386,6 +420,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                             }
                             new PlayMp3().execute(mangbaihat.get(position).getLinkbaihat());
                             fragment_dia_nhac.Playnhac(mangbaihat.get(position).getHinhbaihat());
+                            fragment_lyric.ThemLyric(mangbaihat.get(position).getTenbaihat(), mangbaihat.get(position).getCasi(), mangbaihat.get(position).getLoibaihat()+" ");
                             getSupportActionBar().setTitle(mangbaihat.get(position).getTenbaihat());
                         }
                     }
