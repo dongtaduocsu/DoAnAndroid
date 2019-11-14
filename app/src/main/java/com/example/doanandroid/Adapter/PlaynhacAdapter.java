@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doanandroid.Activity.PlayNhacActivity;
+import com.example.doanandroid.Fragment.Fragment_Play_Danh_Sach_Bai_Hat;
 import com.example.doanandroid.Model.Baihat;
 import com.example.doanandroid.R;
 
@@ -56,7 +57,11 @@ public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHo
             txtcasi = itemView.findViewById(R.id.textviewplaynhactencasi);
             txttenbaihat = itemView.findViewById(R.id.textviewplaynhactenbaihat);
             txtindex = itemView.findViewById(R.id.textviewplaynhacindex);
-
         }
+
+
+
     }
+
+
 }

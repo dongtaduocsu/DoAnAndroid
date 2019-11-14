@@ -31,4 +31,5 @@ public class Fragment_Play_Danh_Sach_Bai_Hat extends Fragment {
         }
         return view;
     }
+
 }
