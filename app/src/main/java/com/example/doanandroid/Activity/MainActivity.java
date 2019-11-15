@@ -29,10 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         MainViewPagerAdapter mainViewPagerAdapter=new MainViewPagerAdapter(getSupportFragmentManager());
-        mainViewPagerAdapter.addFragment(new fragment_trangchu(),"Trang chủ");
-        mainViewPagerAdapter.addFragment(new fragment_timkiem(),"Tìm kiếm");
+        mainViewPagerAdapter.addFragment(new fragment_trangchu(),"trang chủ");
+        mainViewPagerAdapter.addFragment(new fragment_timkiem(),"tìm kiếm");
         viewPager.setAdapter(mainViewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+
         tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu );
         tabLayout.getTabAt(1).setIcon(R.drawable.iconsearch);
 

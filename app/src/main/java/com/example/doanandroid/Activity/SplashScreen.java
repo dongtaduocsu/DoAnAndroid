@@ -24,7 +24,6 @@ private ImageView iv;
         Animation myanim = AnimationUtils.loadAnimation(this,R.anim.my_transition);
         tv.startAnimation(myanim);
         iv.startAnimation(myanim);
-        final Intent myIntent = new Intent(this, MainActivity.class);
 
 
         Handler handler = new Handler();
