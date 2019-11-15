@@ -297,6 +297,7 @@ public class PlayNhacActivity extends AppCompatActivity {
         setSupportActionBar(toolbarplaynhac);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPagerplaynhac.setOffscreenPageLimit(3);
+
         toolbarplaynhac.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

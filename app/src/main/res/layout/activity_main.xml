@@ -13,18 +13,19 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/myViewPager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="575dp"
         android:layout_weight="1"
 
         ></androidx.viewpager.widget.ViewPager>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/myTabLayout"
         app:tabIndicatorColor="#a845de"
+        
         app:tabMode="fixed"
-        app:tabBackground="@color/colorAccent"
+        app:tabBackground="@color/cardview_shadow_end_color"
         app:tabSelectedTextColor="#a845de"
         app:tabTextColor="#000000"
-        app:tabIndicatorHeight="2dp"
+        app:tabIndicatorHeight="1dp"
         android:background="@android:color/transparent"
 
         android:layout_width="match_parent"
