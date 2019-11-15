@@ -99,7 +99,7 @@ public class PlayNhacActivity extends AppCompatActivity {
 
                 }
             }
-        }, 12000);
+        }, 500);
 
         imgplay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -296,6 +296,7 @@ public class PlayNhacActivity extends AppCompatActivity {
         viewPagerplaynhac = findViewById(R.id.viewpagerplaynhac);
         setSupportActionBar(toolbarplaynhac);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        viewPagerplaynhac.setOffscreenPageLimit(3);
         toolbarplaynhac.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -312,9 +313,14 @@ public class PlayNhacActivity extends AppCompatActivity {
         adapternhac.AddFragment(fragment_play_danh_sach_bai_hat);
         adapternhac.AddFragment(fragment_dia_nhac);
         adapternhac.AddFragment(fragment_lyric);
+
         viewPagerplaynhac.setAdapter(adapternhac);
+        fragment_play_danh_sach_bai_hat = (Fragment_Play_Danh_Sach_Bai_Hat) adapternhac.getItem(0);
         fragment_dia_nhac = (Fragment_Dia_nhac) adapternhac.getItem(1);
         fragment_lyric = (Fragment_Lyric) adapternhac.getItem(2);
+
+
+
 
 
         if (mangbaihat.size() > 0) {

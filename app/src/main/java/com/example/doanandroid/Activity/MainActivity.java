@@ -3,6 +3,7 @@ package com.example.doanandroid.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.doanandroid.Adapter.MainViewPagerAdapter;
@@ -17,7 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = new Intent(this, SplashScreen.class);
+        startActivity(intent);
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         anhxa();
         init();

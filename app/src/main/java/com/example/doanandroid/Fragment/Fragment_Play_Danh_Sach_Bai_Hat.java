@@ -28,6 +28,7 @@ public class Fragment_Play_Danh_Sach_Bai_Hat extends Fragment {
             playnhacAdapter = new PlaynhacAdapter(getActivity(), PlayNhacActivity.mangbaihat);
             recyclerViewplaynhac.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerViewplaynhac.setAdapter(playnhacAdapter);
+
         }
         return view;
     }
