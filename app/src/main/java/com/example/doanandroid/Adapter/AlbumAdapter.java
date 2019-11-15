@@ -17,6 +17,7 @@ package com.example.doanandroid.Adapter;
         import com.squareup.picasso.Picasso;
 
         import java.util.ArrayList;
+        import java.util.logging.Handler;
 
 public class AlbumAdapter extends  RecyclerView.Adapter<AlbumAdapter.Viewholder>{
     Context context;
