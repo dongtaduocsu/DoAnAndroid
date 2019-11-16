@@ -33,7 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PlayNhacActivity extends AppCompatActivity {
+public class PlayNhacActivity extends AppCompatActivity implements PlayNhacActivityCallback {
 
     Toolbar toolbarplaynhac;
     TextView txtTimesong, txtTotaltimesong;
@@ -277,9 +277,9 @@ public class PlayNhacActivity extends AppCompatActivity {
 
             }
             if (intent.hasExtra("cakhuc1")) {
-                Baihat baihat=intent.getParcelableExtra("cakhuc1");
+                final Baihat baihat=intent.getParcelableExtra("cakhuc1");
 
-                mangbaihat.add(baihat);
+               String tmp= baihat.getIdbaihat();
 
 
 
@@ -464,5 +464,38 @@ public class PlayNhacActivity extends AppCompatActivity {
                 }
             }
         }, 1000);
+    }
+
+
+    @Override
+    public void onMsgFromFragAToMain(final Baihat baihat){
+
+        final Handler handler1 = new Handler();
+        handler1.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                    if (mangbaihat.size() > 0) {
+                        if (mediaPlayer.isPlaying() || mediaPlayer != null){
+                            mediaPlayer.stop();
+                            mediaPlayer.release();
+                            mediaPlayer = null;
+                        }
+
+
+
+                            new PlayMp3().execute(baihat.getLinkbaihat());
+                            fragment_dia_nhac.Playnhac(baihat.getHinhbaihat());
+                            fragment_lyric.ThemLyric(baihat.getTenbaihat(), baihat.getCasi(), baihat.getLoibaihat()+" ");
+                            getSupportActionBar().setTitle(baihat.getTenbaihat());
+
+                    }
+
+                    next = false;
+                    handler1.removeCallbacks(this);
+
+            }
+        }, 1000);
+
     }
 }
