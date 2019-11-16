@@ -276,6 +276,22 @@ public class PlayNhacActivity extends AppCompatActivity {
                 mangbaihat.add(baihat);
 
             }
+            if (intent.hasExtra("cakhuc1")) {
+                Baihat baihat=intent.getParcelableExtra("cakhuc1");
+
+                mangbaihat.add(baihat);
+
+
+
+
+
+
+
+
+
+
+
+            }
             if (intent.hasExtra("cacbaihat")) {
                 ArrayList<Baihat> baihatArrayList = intent.getParcelableArrayListExtra("cacbaihat");
                 mangbaihat = baihatArrayList;

@@ -25,6 +25,7 @@ public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHo
     public PlaynhacAdapter(Context context, ArrayList<Baihat> mangbaihat) {
         this.context = context;
         this.mangbaihat = mangbaihat;
+
     }
 
     @NonNull
