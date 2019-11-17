@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +23,7 @@ public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHo
     Context context;
     ArrayList<Baihat> mangbaihat;
 
+
     public PlaynhacAdapter(Context context, ArrayList<Baihat> mangbaihat) {
         this.context = context;
         this.mangbaihat = mangbaihat;
@@ -32,7 +34,6 @@ public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.dong_play_bai_hat, parent, false);
-
         return new ViewHolder(view);
     }
 
@@ -42,6 +43,7 @@ public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHo
         holder.txtcasi.setText(baihat.getCasi());
         holder.txtindex.setText(position+1+"");
         holder.txttenbaihat.setText(baihat.getTenbaihat());
+
     }
 
     @Override
@@ -52,11 +54,17 @@ public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView txtindex, txttenbaihat, txtcasi;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             txtcasi = itemView.findViewById(R.id.textviewplaynhactencasi);
             txttenbaihat = itemView.findViewById(R.id.textviewplaynhactenbaihat);
             txtindex = itemView.findViewById(R.id.textviewplaynhacindex);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Fragment_Play_Danh_Sach_Bai_Hat.context2.onMsgFromFragAToMain(mangbaihat.get(getPosition()));
+                }
+            });
         }
 
 
