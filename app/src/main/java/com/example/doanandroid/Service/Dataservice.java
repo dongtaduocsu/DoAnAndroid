@@ -21,6 +21,10 @@ public interface Dataservice {
     @GET ("songbanner.php")
     Call<List<Quangcao>> GetDataBanner ();
 
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<Baihat>> GetDanhsachbaihattheoquangcao(@Field("idquangcao") String idquangcao);
+
     @GET ("playlistforcurrentday.php")
     Call<List<Playlist>> GetPlaylistCurrentDay();
 
@@ -33,9 +37,7 @@ public interface Dataservice {
     @GET ("baihatduocthich.php")
     Call<List<Baihat>> GetBaiHatHot();
 
-    @FormUrlEncoded
-    @POST("danhsachbaihat.php")
-    Call<List<Baihat>> GetDanhsachbaihattheoquangcao(@Field("idquangcao") String idquangcao);
+
 
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
